@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+<h1>Posts</h1>
+<div class="row">
+{% for post in posts %}
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <img class="card-img-top" src="{{ post.picture.url }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ project.author }}</h5>
+                <p class="card-text">{{ project.content }}</p>
+                <a href="{% url 'post_detail' post.pk %}"
+                   class="btn btn-primary">
+                    Read More
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
