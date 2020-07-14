@@ -4,19 +4,19 @@
 <h1>Posts</h1>
 <div class="row">
 {% for post in posts %}
-    <div class="col-md-4">
-        <div class="card mb-2">
+    <div class="col-md-8">
+        <div class="card mb-3">
             <img class="card-img-top" src="{{ post.picture.url }}">
             <div class="card-body">
-                <h5 class="card-title">{{ project.author }}</h5>
-                <p class="card-text">{{ project.content }}</p>
+                <h5 class="card-title">{{ post.author }}</h5>
+                <p class="card-text">{{ post.content }}</p>
+                <p class="card-text" ><small class="text-muted">{{ post.pub_date | date }}</small>></p>
                 <a href="{% url 'post_detail' post.pk %}"
-                   class="btn btn-primary">
-                    Read More
+                   class="btn btn-primary"> Read More
                 </a>
             </div>
         </div>
     </div>
-    {% endfor %}
+{% endfor %}
 </div>
 {% endblock %}
